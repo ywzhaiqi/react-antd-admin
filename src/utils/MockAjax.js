@@ -25,7 +25,7 @@ const mockResult = (tableName, queryObj) => {
   // 尝试加载schema文件
   let schema;
   try {
-    schema = require(`../schema/${tableName}.dataSchema.js`);
+    schema = require(`../schema/${tableName}.dataSchema.js`).default;
   } catch (e) {
     logger.error('can not find dataSchema file for table %s', tableName);
     // 设置返回结果为失败

@@ -208,6 +208,9 @@ class InnerTable extends React.PureComponent {
     if (this.formComponent) {
       this.formComponent.resetFields();
       if (data) {
+        // Warning: Cannot use `setFieldsValue` until you use `getFieldDecorator` or `getFieldProps` to register it.
+        // 原因是：传递过多的值
+        // https://github.com/ant-design/ant-design/issues/5309
         this.formComponent.setFieldsValue(data);
       }
     } else {

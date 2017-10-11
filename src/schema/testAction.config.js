@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   showExport: false,
   showImport: false,
   showInsert: true,

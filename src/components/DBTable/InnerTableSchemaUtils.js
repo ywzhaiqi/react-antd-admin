@@ -364,7 +364,7 @@ const SchemaUtils = {
       initialValue: forUpdate ? undefined : field.defaultValue,
       rules: forUpdate ? field.$$updateValidator : field.validator,
     })(
-      <Select multiple placeholder={field.placeholder || '请选择'} size="default" disabled={field.disabled}>
+      <Select mode="multiple" placeholder={field.placeholder || '请选择'} size="default" disabled={field.disabled}>
         {options}
       </Select>
     ), field);

@@ -40,7 +40,7 @@ export default {
     let querySchema, dataSchema;
 
     try {
-      querySchema = require(`../../schema/${tableName}.querySchema.js`);
+      querySchema = require(`../../schema/${tableName}.querySchema.js`).default;
       // 如果是忽略cache, 每次读取的schema都必须是全新的
       if (ignoreCache) {
         querySchema = querySchema.map(item => Object.assign({}, item));  // Object.assign是浅拷贝, 不过没啥影响
@@ -50,7 +50,7 @@ export default {
     }
 
     try {
-      dataSchema = require(`../../schema/${tableName}.dataSchema.js`);
+      dataSchema = require(`../../schema/${tableName}.dataSchema.js`).default;
       if (ignoreCache) {
         dataSchema = dataSchema.map(item => Object.assign({}, item));
       }
@@ -159,7 +159,7 @@ export default {
 
     let tableConfig;
     try {
-      const tmp = require(`../../schema/${tableName}.config.js`);  // 个性化配置加载失败也没关系
+      const tmp = require(`../../schema/${tableName}.config.js`).default;  // 个性化配置加载失败也没关系
       tableConfig = Object.assign({}, globalConfig.DBTable.default, tmp);  // 注意合并默认配置
     } catch (e) {
       logger.warn('can not find config for table %s, use default instead', tableName);

@@ -118,6 +118,15 @@ class DBTable extends React.PureComponent {
       // 如果表名不变的话, 没必要重新加载schema/refresh, 直接return
       const routes = nextProps.routes;
       const nextTableName = routes[routes.length - 1].tableName;
+
+      // 开发时热重载返回 undefined
+      if (!nextTableName) {
+        // 错误：Unexpected use of 'location'  no-restricted-globals
+        // location.reload()
+        console.log('nextTableName 不存在，请手动刷新')
+        return
+      }
+
       if (nextTableName === this.tableName) {
         return;
       }
@@ -156,7 +165,8 @@ class DBTable extends React.PureComponent {
     const routes = props.routes;
     // 这个tableName是路由表配置中传过来的
     // 可以用这个方法向组件传值
-    const tableName = routes.pop().tableName;
+    // const tableName = routes.pop().tableName;
+    const tableName = routes[routes.length - 1].tableName;
     if (tableName) {
       logger.info('init component DBTable with tableName = %s', tableName);
     } else {

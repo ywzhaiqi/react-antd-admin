@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import {UpdateGPA1, UpdateGPA2} from '../components/UpdateComponentDemo';
 
-module.exports = [
+export default [
   {
     key: 'id',
     title: 'ID',

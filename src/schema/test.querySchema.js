@@ -5,7 +5,7 @@ import {Icon} from 'antd';
 // schema的结构和含义参考下面的例子
 // 注意: 所有的key不能重复
 
-module.exports = [
+export default [
   {
     key: 'name',  // 传递给后端的字段名
     title: '用户名',  // 前端显示的名称

@@ -166,7 +166,7 @@ const SchemaUtils = {
         formRows.push(<Row key={i} gutter={16}>{formCols}</Row>);
       }
 
-      return (<Form horizontal>
+      return (<Form>
         {formRows}
       </Form>);
     };
@@ -257,7 +257,7 @@ const SchemaUtils = {
     });
 
     return this.colWrapper(getFieldDecorator => getFieldDecorator(field.key, {initialValue: field.defaultValue})(
-      <Select multiple placeholder={field.placeholder || '请选择'} size="default">
+      <Select mode="multiple" placeholder={field.placeholder || '请选择'} size="default">
         {options}
       </Select>
     ), field);

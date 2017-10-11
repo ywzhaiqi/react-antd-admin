@@ -209,8 +209,6 @@ class Sidebar extends React.PureComponent {
   }
 
   render() {
-    const { switchMenuPopover } = this.props
-
     if (this.props.isSimple) {
       return this.genMenus(false)
     }

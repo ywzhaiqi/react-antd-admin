@@ -6,7 +6,7 @@ import {Icon} from 'antd';
 
 // 这个配置不只决定了table的schema, 也包括用于新增/删除的表单的schema
 
-module.exports = [
+export default [
   {
     key: 'id',  // 传递给后端的key
     title: 'ID',  // 前端显示的名字
